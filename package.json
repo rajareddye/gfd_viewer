@@ -1,0 +1,30 @@
+{
+    "name": "gfd",
+    "displayName": "gfd",
+    "description": "rqmts",
+    "repository": {
+		"type": "git",
+		"url": "https://github.com/rajareddye/pseudo-srd.git"
+	},
+    "publisher": "rqmts-gfd",
+	"version": "0.1.0",
+    "engines": {
+        "vscode": "^1.40.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "rqmts",
+            "aliases": ["rqmts", "rqmts"],
+            "extensions": [".gfd"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "rqmts",
+            "scopeName": "source.gfd",
+            "path": "./syntaxes/rqmts.tmLanguage.json"
+        }]
+    }
+}

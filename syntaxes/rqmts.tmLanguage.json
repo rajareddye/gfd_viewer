@@ -1,0 +1,84 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "rqmts",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#comment"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.rqmts",
+          "match": "\\b(if|while|return)\\b"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.rqmts",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.rqmts",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "comment": {
+      "patterns": [
+        {
+          "begin": "(^[ \\t]+)?((//)(?:\\s*((@)internal)(?=\\s|$))?)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.whitespace.comment.leading.js"
+            },
+            "2": {
+              "name": "comment.line.double-slash.js"
+            },
+            "3": {
+              "name": "punctuation.definition.comment.js"
+            },
+            "4": {
+              "name": "storage.type.internaldeclaration.js"
+            },
+            "5": {
+              "name": "punctuation.decorator.internaldeclaration.js"
+            }
+          },
+          "end": "(?=$)",
+          "contentName": "comment.line.double-slash.js"
+        },
+        {
+          "name": "comment.block.js",
+          "begin": "(/\\*)(?:\\s*((@)internal)(?=\\s|(\\*/)))?",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.comment.js"
+            },
+            "2": {
+              "name": "storage.type.internaldeclaration.js"
+            },
+            "3": {
+              "name": "punctuation.decorator.internaldeclaration.js"
+            }
+          },
+          "end": "\\*/",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.js"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "scopeName": "source.gfd"
+}
